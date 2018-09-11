@@ -1,10 +1,10 @@
-const express = require("express");
-const http = require("http");
+import express from "express";
+import { createServer } from "http";
 
 //  Express app setup
 const app = express();
 
-const server = http.createServer(app);
+const server = createServer(app);
 server.listen(3000);
 server.on('listening', () => {
     console.log('Server is listening on port: 3000');
