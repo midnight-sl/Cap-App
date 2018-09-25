@@ -11,7 +11,7 @@ import routes from './routes';
 
 // use dotenv
 dotenv.config({
-    silent: true,
+  silent: true,
 });
 
 // Express app setup
@@ -26,7 +26,7 @@ app.use(logger('combined'));
 
 // body parser
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ exteded: false}));
+app.use(bodyParser.urlencoded({ exteded: false }));
 
 // cookie parser
 app.use(cookieParser());
@@ -39,19 +39,19 @@ app.use('/', routes);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
-    const err = new Error('Not found');
-    err.status = 404;
-    next(err);
-})
+  const err = new Error('Not found');
+  err.status = 404;
+  next(err);
+});
 
 // error handlers
 app.use((err, req, res, next) => {
-    res.status(err.status || 500);
-    res.render('error.pug', {
-        message: err.message,
-        error: app.get('env') === 'development' ? err: {},
-    });
-    next();
+  res.status(err.status || 500);
+  res.render('error.pug', {
+    message: err.message,
+    error: app.get('env') === 'development' ? err : {},
   });
+  next();
+});
 
 export default app;

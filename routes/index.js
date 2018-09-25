@@ -4,7 +4,7 @@ const router = express.Router();
 
 /* Get home page. */
 router.get('*', (req, res) => {
-   res.render('index.pug');
+  res.render('index.pug');
 });
 
 export default router;
